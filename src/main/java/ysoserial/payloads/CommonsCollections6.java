@@ -60,7 +60,8 @@ public class CommonsCollections6 extends PayloadRunner implements ObjectPayload<
 
         TiedMapEntry entry = new TiedMapEntry(lazyMap, "foo");
 
-       HashSet map = new HashSet(1);
+        HashSet map = new HashSet(1);
+
         map.add("foo");
         Field f = null;
         try {
